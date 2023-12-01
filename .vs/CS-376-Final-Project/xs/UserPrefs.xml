@@ -1,17 +1,16 @@
 ﻿<Properties StartupConfiguration="{BAAA0357-DF71-2C11-3C97-CA4F638A1FF0}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Basic_Tower.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Assets/Scripts/Basic_Tower.cs" Line="37" Column="1" />
+      <File FileName="Assets/Scripts/Basic_Tower.cs" Line="30" Column="1" />
       <File FileName="Assets/Scripts/Gun.cs" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="16" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ee13a6fc-ac52-4fea-819e-84abff9a7a06" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/joshmatkowsky/Documents/GitHub/CS-376-Final-Project/Assets/Scripts/Basic_Tower.cs" relfile="Assets/Scripts/Basic_Tower.cs" line="27" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

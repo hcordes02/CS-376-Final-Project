@@ -23,19 +23,20 @@ public class Basic_Tower : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         //check that collision is an enemy
         //if yes, call fire in its direction
 
-        if (collision.tag == "enemy")
+        if (collision.gameObject.GetComponent<Enemy>() != null)
         {
-            //get angle towards enemy
-            Fire(Quaternion.identity); //called with angle
+            Vector2 to_enemy = collision.transform.position - transform.position;
+            Vector3 ToEnemy = new Vector3(to_enemy.x, to_enemy.y, 0);
+            Fire(ToEnemy); //called with angle
         }
     }
 
-    void Fire(Quaternion towards_enemy){
+    void Fire(Vector3 fire_direction){
         if (can_fire)
         {
             can_fire = false;
@@ -43,6 +44,9 @@ public class Basic_Tower : MonoBehaviour
 
             GameObject b = Instantiate(tower_bullet, transform.position, Quaternion.identity);
 
+            Bullet bullet = b.GetComponent<Bullet>();
+            bullet.dir = fire_direction.normalized;
+            bullet.spd = bullet_speed;
 
         }
 

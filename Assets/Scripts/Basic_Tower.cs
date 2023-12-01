@@ -23,7 +23,7 @@ public class Basic_Tower : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         //check that collision is an enemy
         //if yes, call fire in its direction

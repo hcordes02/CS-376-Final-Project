@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1011959719645731019}
   - component: {fileID: -354341155795655797}
   - component: {fileID: -7887630162183192647}
-  - component: {fileID: -3584568150138294059}
+  - component: {fileID: -881931110156936061}
+  - component: {fileID: 1319865575509582648}
   m_Layer: 0
   m_Name: Basic Tower
   m_TagString: Untagged
@@ -135,7 +136,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower_bullet: {fileID: 0}
---- !u!61 &-3584568150138294059
+--- !u!50 &-881931110156936061
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2158023148153246958}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1319865575509582648
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,5 +206,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3.6}
+  m_Size: {x: 2.4, y: 3.5}
   m_EdgeRadius: 0

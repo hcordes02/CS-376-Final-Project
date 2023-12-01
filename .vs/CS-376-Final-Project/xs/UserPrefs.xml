@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{BAAA0357-DF71-2C11-3C97-CA4F638A1FF0}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Gun.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Basic_Tower.cs" Line="41" Column="39" />
+      <File FileName="Assets/Scripts/Gun.cs" Line="12" Column="36" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2f8108c6-61dc-49c0-a602-986cf4f0beb9" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

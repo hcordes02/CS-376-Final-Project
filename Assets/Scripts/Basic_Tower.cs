@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Basic_Tower : MonoBehaviour
@@ -37,7 +35,8 @@ public class Basic_Tower : MonoBehaviour
         }
     }
 
-    void Fire(Vector3 fire_direction){
+    void Fire(Vector3 fire_direction)
+    {
         if (can_fire & shoot_timer < Time.time)
         {
             can_fire = false;

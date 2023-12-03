@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
     public GameObject BulletPrefab;
     //public AudioClip fire_sfx;
     //AudioSource source;
+    public bool canShoot;
 
     public float spd = 5;
     //public float kb = 6;
@@ -20,6 +21,7 @@ public class Gun : MonoBehaviour
         anim = GetComponent<Animator>();
         player = GetComponentInParent<Player>();
         //source = GetComponent<AudioSource>();
+        canShoot = true;
     }
 
     // Update is called once per frame
@@ -69,17 +71,18 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
+        if (canShoot == true)
+        {
+            anim.SetBool("shoot", true);
+            //source.PlayOneShot(fire_sfx);
 
-        anim.SetBool("shoot", true);
-        //source.PlayOneShot(fire_sfx);
+            GameObject b = Instantiate(BulletPrefab, transform.position + (transform.right * 0.5f), Quaternion.identity);
+            Bullet bullet = b.GetComponent<Bullet>();
+            //bullet.owner = player.gameObject.transform.GetChild(0).gameObject;
+            bullet.dir = new Vector3(player.look_dir.x, player.look_dir.y).normalized;
+            bullet.spd = spd;
+            //bullet.kb = kb;
+        }
 
-        GameObject b = Instantiate(BulletPrefab, transform.position + (transform.right * 0.5f), Quaternion.identity);
-        Bullet bullet = b.GetComponent<Bullet>();
-        //bullet.owner = player.gameObject.transform.GetChild(0).gameObject;
-        bullet.dir = new Vector3(player.look_dir.x, player.look_dir.y).normalized;
-        bullet.spd = spd;
-        //bullet.kb = kb;
-        
-        
     }
 }

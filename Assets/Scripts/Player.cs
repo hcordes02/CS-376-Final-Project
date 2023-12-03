@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
+using UnityEditor;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
     public float fric = 0.3f;
 
     public int money = 0;
+    private bool menu = false;
 
 
 
@@ -93,12 +95,8 @@ public class Player : MonoBehaviour
         move = move.normalized;
 
         shoot = Input.GetMouseButton(0);
-            
-        
-        
 
         mouse_pos = cam.ScreenToWorldPoint(Input.mousePosition);
-        
     }
     void movement()
     {

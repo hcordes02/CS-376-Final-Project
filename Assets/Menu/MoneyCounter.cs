@@ -5,24 +5,22 @@ using UnityEngine;
 /// Keep track of base health
 /// </summary>
 [RequireComponent(typeof(TMP_Text))]
-public class HealthCounter : MonoBehaviour
+public class MoneyCounter : MonoBehaviour
 {
     /// <summary>
     /// Store for HealthCounter
     /// </summary>
-    public static HealthCounter Singleton;
+    public static MoneyCounter Singleton;
 
     /// <summary>
     /// Base health field
     /// </summary>
-    private float health;
+    private int money;
 
     /// <summary>
     /// Text field
     /// </summary>
-    private TMP_Text healthDisplay;
-
-    public bool gameOver;
+    private TMP_Text moneyDisplay;
 
     /// <summary>
     /// Initialize Singleton and lifeDisplay
@@ -30,8 +28,7 @@ public class HealthCounter : MonoBehaviour
     private void Start()
     {
         Singleton = this;
-        healthDisplay = GetComponent<TMP_Text>();
-        gameOver = true;
+        moneyDisplay = GetComponent<TMP_Text>();
     }
 
     /// <summary>
@@ -39,37 +36,25 @@ public class HealthCounter : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        health = FindObjectOfType<Base>().currentHealth;
-        SetHealth(health);
+        money = FindObjectOfType<Player>().money;
+        SetMoney(money);
     }
 
     /// <summary>
     /// Update health and check if lost
     /// </summary>
     /// <param name="points"></param>
-    public static void SetHealth(float health)
+    public static void SetMoney(int money)
     {
-        Singleton.HealthInternal(health);
-        Singleton.CheckEnd();
+        Singleton.MoneyInternal(money);
     }
 
     /// <summary>
     /// Set text to base health
     /// </summary>
     /// <param name="delta"></param>
-    private void HealthInternal(float delta)
+    private void MoneyInternal(int delta)
     {
-        healthDisplay.SetText("Lives: " + health.ToString());
-    }
-
-    /// <summary>
-    /// Check if player has died
-    /// </summary>
-    private void CheckEnd()
-    {
-        if (health <= 0)
-        {
-            gameOver = true;
-        }
+        moneyDisplay.SetText("Money: " + money.ToString());
     }
 }

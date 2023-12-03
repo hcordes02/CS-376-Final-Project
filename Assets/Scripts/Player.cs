@@ -1,3 +1,4 @@
+using UnityEditor.UIElements;
 using UnityEngine;
 
 /// <summary>
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
     public Animator anim;
     public GameObject VFXPrefab;
     Gun gun;
+    ToolBar toolbar;
     public AnimatorStateInfo state => anim.GetCurrentAnimatorStateInfo(0);
     float rand_chance => Random.Range(0f, 1f);
 
@@ -26,11 +28,11 @@ public class Player : MonoBehaviour
     public float shoot_timer = 0;
     public float bullet_spd = 5;
     public bool shoot;
-
+    public bool place;
     void Start()
     {
         gun = GetComponentInChildren<Gun>();
-
+        toolbar = FindObjectOfType<ToolBar>();
     }
 
     void Update()
@@ -43,7 +45,12 @@ public class Player : MonoBehaviour
             shoot_timer = shoot_cooldown;
             gun.Shoot();
         }
-        
+        if (place && toolbar.selected_tower != null)
+        {
+            Instantiate(toolbar.selected_tower, mouse_pos, Quaternion.identity);
+            toolbar.selected_tower = null;
+        }
+
         if (state.IsName("run"))
         {
             if (rand_chance < 0.05f)
@@ -62,10 +69,10 @@ public class Player : MonoBehaviour
         look_dir = (mouse_pos - rb.position);
 
         if (look_dir.normalized.x > 0.2f)
-            transform.localScale = new Vector3(4, 4, 1);
+            transform.localScale = new Vector3(5, 5, 1);
         else if (look_dir.normalized.x < -0.2f)
         {
-            transform.localScale = new Vector3(-4, 4, 1);
+            transform.localScale = new Vector3(-5, 5, 1);
         }
 
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);

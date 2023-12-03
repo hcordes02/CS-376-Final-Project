@@ -21,9 +21,9 @@ public class Base : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Bullet>() != null)
+        if (collision.gameObject.GetComponent<Bullet>() != null && !collision.gameObject.GetComponent<Bullet>().strike)
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Bullet>().strike = true;
         }
 
         if (collision.gameObject.GetComponent<Enemy>() != null)

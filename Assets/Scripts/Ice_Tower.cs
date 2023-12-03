@@ -4,31 +4,29 @@ using UnityEngine;
 
 public class Ice_Tower : MonoBehaviour
 {
-    public float slow_speed = .02f;
+    //public float slow_speed = .02f;
 
-    public float originial_speed;
+    //public float originial_speed;
 
-    
+    public float slow_factor = 1.5f;
 
-//on trigger enter means that all enemies have to be spawned outside the field
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-    var enemy = collision.GetComponent<Enemy>();
+        var enemy = collision.gameObject.GetComponent<Enemy>();
 
         if (enemy != null)
         {
-            originial_speed = enemy.movespeed;
-            enemy.movespeed = slow_speed;
+            enemy.movespeed /= slow_factor;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        var enemy = collision.GetComponent<Enemy>();
+        var enemy = collision.gameObject.GetComponent<Enemy>();
 
         if (enemy != null)
         {
-            enemy.movespeed = originial_speed;
+            enemy.movespeed *= slow_factor;
         }
     }
 }

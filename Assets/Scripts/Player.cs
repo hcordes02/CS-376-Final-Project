@@ -13,8 +13,6 @@ public class Player : MonoBehaviour
     public float fric = 0.3f;
 
     public int money = 0;
-    private bool menu = false;
-
 
 
     public float shoot_cooldown = 0.6f;

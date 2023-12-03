@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -26,16 +27,21 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Bullet>() != null)
         {
-            Destroy(collision.gameObject);
-            health -= 1;
-            sound.Play_Hit();
-
-            if (health <= 0)
+            if (!collision.gameObject.GetComponent<Bullet>().strike)
             {
-                sound.Play_Death();
-                FindObjectOfType<Player>().money += 10;
-                Destroy(gameObject);
+                collision.gameObject.GetComponent<Bullet>().strike = true;
+                health -= 1;
+                sound.Play_Hit();
+                if (health <= 0)
+                {
+                    sound.Play_Death();
+                    FindObjectOfType<Player>().money += 10;
+                    Destroy(gameObject);
+                }
             }
+            
+
+            
         }
     }
 }

@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     public float kb;
     public float lifetime;
     public bool front = true;
-    bool strike = false;
+    public bool strike = false;
     public float spd;
 
     void Start()
@@ -31,6 +31,11 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (strike)
+        {
+            anim.SetBool("break", true);
+        }
+ 
     }
     void FixedUpdate()
     {
@@ -40,6 +45,7 @@ public class Bullet : MonoBehaviour
         }
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y - 0.01f);
     }
+
 
     private void OnBecameInvisible()
     {

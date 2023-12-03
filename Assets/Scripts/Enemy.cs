@@ -1,27 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enemy component
+/// </summary>
 public class Enemy : MonoBehaviour
 {
+    SoundManager sound;
+
     public float movespeed = .03f;
     public float health = 5;
 
-    Sound_Manager sound;
     private void Start()
     {
-        sound = FindObjectOfType<Sound_Manager>();
+        sound = FindObjectOfType<SoundManager>();
     }
 
     void FixedUpdate()
     {
         var position = transform.position;
-
         position.x -= movespeed;
-
         transform.position = position;
-
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<Bullet>() != null)

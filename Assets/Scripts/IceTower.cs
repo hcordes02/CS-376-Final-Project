@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Ice_Tower : MonoBehaviour
+/// <summary>
+/// IceTower component
+/// </summary>
+public class IceTower : MonoBehaviour
 {
     //public float slow_speed = .02f;
 

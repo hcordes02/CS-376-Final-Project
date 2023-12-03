@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// HealthBar Controller
+/// </summary>
 public class HealthBar : MonoBehaviour
 {
     public static HealthBar instance;
@@ -19,6 +20,7 @@ public class HealthBar : MonoBehaviour
     {
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
+
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;

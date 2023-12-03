@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Sound_Manager : MonoBehaviour
+/// <summary>
+/// Sound controller
+/// </summary>
+public class SoundManager : MonoBehaviour
 {
-
     public AudioSource blast_sound;
     public void Play_Fire()
     {
@@ -22,5 +22,4 @@ public class Sound_Manager : MonoBehaviour
     {
         power_sound.Play();
     }
-
 }

@@ -1,19 +1,22 @@
 using UnityEngine;
 
+/// <summary>
+/// Base object
+/// </summary>
 public class Base : MonoBehaviour
 {
-    public int maxHealth;
-
-    public int currentHealth;
-
     private HealthBar healthBar;
+    private MenuManager menuManager;
+
+    public int maxHealth;
+    public int currentHealth;
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar = FindObjectOfType<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
-
+        menuManager = FindObjectOfType<MenuManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,6 +31,10 @@ public class Base : MonoBehaviour
             currentHealth -= 10;
             healthBar.SetHealth(currentHealth);
             Destroy(collision.gameObject);
+            if (currentHealth <= 0 )
+            {
+                menuManager.ReturnToMenu();
+            }
         }
     }
 }

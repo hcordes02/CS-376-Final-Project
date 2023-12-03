@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Toolbar controller
+/// </summary>
 public class ToolBar : MonoBehaviour
 {
 

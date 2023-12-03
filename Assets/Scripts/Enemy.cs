@@ -5,15 +5,18 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float movespeed = .03f;
-
     public float health = 5;
 
+    private void Start()
+    {
+        
+    }
 
     void FixedUpdate()
     {
         var position = transform.position;
 
-        position.x += movespeed;
+        position.x -= movespeed;
 
         transform.position = position;
 
@@ -26,6 +29,7 @@ public class Enemy : MonoBehaviour
             health -= 1;
             if (health <= 0)
             {
+                FindObjectOfType<Player>().money += 10;
                 Destroy(gameObject);
             }
         }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Basic_Tower : MonoBehaviour
@@ -7,9 +5,10 @@ public class Basic_Tower : MonoBehaviour
 
     public GameObject tower_bullet;
 
-    bool can_fire;
-    float reload_speed = 2f;
+    bool can_fire = true;
+    float reload_speed = 1f;
     float bullet_speed = 5f;
+    float shoot_timer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +17,12 @@ public class Basic_Tower : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         //check that collision is an enemy
         //if yes, call fire in its direction
@@ -36,8 +35,9 @@ public class Basic_Tower : MonoBehaviour
         }
     }
 
-    void Fire(Vector3 fire_direction){
-        if (can_fire)
+    void Fire(Vector3 fire_direction)
+    {
+        if (can_fire & shoot_timer < Time.time)
         {
             can_fire = false;
             Invoke("Reload", reload_speed);
@@ -47,13 +47,14 @@ public class Basic_Tower : MonoBehaviour
             Bullet bullet = b.GetComponent<Bullet>();
             bullet.dir = fire_direction.normalized;
             bullet.spd = bullet_speed;
-
+            Reload();
         }
 
     }
 
     void Reload()
     {
+        shoot_timer = Time.time + reload_speed;
         can_fire = true;
     }
 }

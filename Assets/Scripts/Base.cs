@@ -6,20 +6,28 @@ public class Base : MonoBehaviour
 
     public int currentHealth;
 
-    public HealthBar healthBar;
+    private HealthBar healthBar;
 
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar = FindObjectOfType<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Enemy> () != null)
+        if (collision.gameObject.GetComponent<Bullet>() != null)
         {
-            currentHealth -= 1;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.GetComponent<Enemy>() != null)
+        {
+            currentHealth -= 10;
             healthBar.SetHealth(currentHealth);
+            Destroy(collision.gameObject);
         }
     }
 }

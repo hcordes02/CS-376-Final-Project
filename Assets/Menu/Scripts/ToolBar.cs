@@ -17,8 +17,8 @@ public class ToolBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tower1 = FindObjectOfType<Basic_Tower>().gameObject;
-        tower2 = FindObjectOfType<Ice_Tower>().gameObject;
+        tower1 = FindObjectOfType<BasicTower>().gameObject;
+        tower2 = FindObjectOfType<IceTower>().gameObject;
     }
 
     public void Buy_Tower1()

@@ -8,7 +8,9 @@ public class Bullet : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    
+
+    Sound_Manager sound;
+
     //public GameObject owner;
     //public Animator owner_anim;
     //public AnimatorStateInfo owner_state;
@@ -32,6 +34,8 @@ public class Bullet : MonoBehaviour
     {
         anim = GetComponent<Animator>();
 
+        sound = FindObjectOfType<Sound_Manager>();
+        sound.Play_Fire();
     }
 
     // Update is called once per frame

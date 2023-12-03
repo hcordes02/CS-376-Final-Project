@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public float accel = 0.2f;
     public float fric = 0.3f;
 
+    public int money = 0;
+
 
 
     public float shoot_cooldown = 0.6f;

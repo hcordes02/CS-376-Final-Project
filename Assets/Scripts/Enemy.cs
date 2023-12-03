@@ -2,24 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class Enemy : MonoBehaviour
 {
-    Rigidbody2D hitbox;
-    int health;
+    public float movespeed = .03f;
+    public float health = 5;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        hitbox = GetComponent<Rigidbody2D>();
-        health = 10;
+        
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 position = gameObject.transform.position;
-        position.x -= 0.1f;
-        gameObject.transform.position = position;
+        var position = transform.position;
+
+        position.x -= movespeed;
+
+        transform.position = position;
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Bullet>() != null)
+        {
+            Destroy(collision.gameObject);
+            health -= 1;
+            if (health <= 0)
+            {
+                FindObjectOfType<Player>().money += 10;
+                Destroy(gameObject);
+            }
+        }
     }
 }

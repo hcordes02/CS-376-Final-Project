@@ -4,37 +4,39 @@ using UnityEngine;
 
 public class ToolBar : MonoBehaviour
 {
-    public int tower1 = 10;
-    public int tower2 = 15;
+
+    public GameObject selected_tower;
+
+    public int tower1_price;
+    GameObject tower1;
+
+    public int tower2_price;
+    GameObject tower2;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        tower1 = FindObjectOfType<Basic_Tower>().gameObject;
+        tower2 = FindObjectOfType<Ice_Tower>().gameObject;
     }
 
     public void Buy_Tower1()
     {
-        BuyItem(tower1);
+        Buy(tower1, tower1_price);
     }
 
     public void Buy_Tower2()
     {
-        BuyItem(tower2);
+        Buy(tower2, tower2_price);
     }
 
-    private void BuyItem(int price)
+    private void Buy(GameObject tower, int price)
     {
         Player p = FindObjectOfType<Player>();
         if (p.money >= price)
         {
             p.money -= price;
+            selected_tower = tower;
         }
     }
 }

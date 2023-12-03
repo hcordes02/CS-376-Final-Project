@@ -48,6 +48,7 @@ public class BoundObjectToScreen : MonoBehaviour
 
         // Clamp position of object to the bounds of the screen according to it's hitbox
         viewPos.x = Mathf.Clamp(viewPos.x, screenMin.x + objectWidth, screenMax.x - objectWidth);
+        viewPos.y = Mathf.Clamp(viewPos.y, screenMin.y + objectWidth, screenMax.y - objectWidth);
         transform.position = viewPos;
     }
 }

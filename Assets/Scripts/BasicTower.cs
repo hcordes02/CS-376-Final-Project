@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class Basic_Tower : MonoBehaviour
+/// <summary>
+/// BasicTower controller
+/// </summary>
+public class BasicTower : MonoBehaviour
 {
-
     public GameObject tower_bullet;
 
     bool can_fire = true;
@@ -10,23 +12,10 @@ public class Basic_Tower : MonoBehaviour
     float bullet_speed = 5f;
     float shoot_timer = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
-    }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         //check that collision is an enemy
         //if yes, call fire in its direction
-
         if (collision.gameObject.GetComponent<Enemy>() != null)
         {
             Vector2 to_enemy = collision.transform.position - transform.position;

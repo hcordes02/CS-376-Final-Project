@@ -2,18 +2,18 @@ using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// Keep track of base health
+/// Keep track of money
 /// </summary>
 [RequireComponent(typeof(TMP_Text))]
 public class MoneyCounter : MonoBehaviour
 {
     /// <summary>
-    /// Store for HealthCounter
+    /// Store for MoneyCounter
     /// </summary>
     public static MoneyCounter Singleton;
 
     /// <summary>
-    /// Base health field
+    /// Money field
     /// </summary>
     private int money;
 
@@ -23,7 +23,7 @@ public class MoneyCounter : MonoBehaviour
     private TMP_Text moneyDisplay;
 
     /// <summary>
-    /// Initialize Singleton and lifeDisplay
+    /// Initialize Singleton and moneyDisplay
     /// </summary>
     private void Start()
     {
@@ -32,7 +32,7 @@ public class MoneyCounter : MonoBehaviour
     }
 
     /// <summary>
-    /// Get current lives of Player
+    /// Get current mone
     /// </summary>
     private void FixedUpdate()
     {
@@ -41,7 +41,7 @@ public class MoneyCounter : MonoBehaviour
     }
 
     /// <summary>
-    /// Update health and check if lost
+    /// Update money
     /// </summary>
     /// <param name="points"></param>
     public static void SetMoney(int money)
@@ -50,7 +50,7 @@ public class MoneyCounter : MonoBehaviour
     }
 
     /// <summary>
-    /// Set text to base health
+    /// Set text to money
     /// </summary>
     /// <param name="delta"></param>
     private void MoneyInternal(int delta)

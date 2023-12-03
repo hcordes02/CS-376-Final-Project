@@ -6,7 +6,7 @@ using UnityEngine;
 public class ToolBar : MonoBehaviour
 {
 
-    public GameObject selected_tower;
+    public GameObject selected_tower = null;
 
     public int tower1_price;
     GameObject tower1;

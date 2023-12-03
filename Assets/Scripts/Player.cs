@@ -1,4 +1,5 @@
-using UnityEditor.UIElements;
+using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 /// <summary>
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
     public GameObject VFXPrefab;
     Gun gun;
     ToolBar toolbar;
+
     public AnimatorStateInfo state => anim.GetCurrentAnimatorStateInfo(0);
     float rand_chance => Random.Range(0f, 1f);
 
@@ -29,9 +31,11 @@ public class Player : MonoBehaviour
     public float bullet_spd = 5;
     public bool shoot;
     public bool place;
+
     void Start()
     {
         gun = GetComponentInChildren<Gun>();
+
         toolbar = FindObjectOfType<ToolBar>();
     }
 
@@ -45,6 +49,7 @@ public class Player : MonoBehaviour
             shoot_timer = shoot_cooldown;
             gun.Shoot();
         }
+        
         if (place && toolbar.selected_tower != null)
         {
             Instantiate(toolbar.selected_tower, mouse_pos, Quaternion.identity);
@@ -90,6 +95,7 @@ public class Player : MonoBehaviour
         move = move.normalized;
 
         shoot = Input.GetMouseButton(0);
+        place = Input.GetMouseButton(1);
 
         mouse_pos = cam.ScreenToWorldPoint(Input.mousePosition);
     }

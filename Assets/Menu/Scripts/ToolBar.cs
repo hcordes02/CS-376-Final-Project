@@ -8,10 +8,10 @@ public class ToolBar : MonoBehaviour
 
     public GameObject selected_tower = null;
 
-    public int tower1_price = 10;
+    public int tower1_price;
     GameObject tower1;
 
-    public int tower2_price = 15;
+    public int tower2_price;
     GameObject tower2;
 
     // Start is called before the first frame update

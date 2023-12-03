@@ -5,9 +5,15 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    public static HealthBar instance;
     public Slider slider;
     public Gradient gradient;
     public Image fill;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     private void FixedUpdate()
     {

@@ -7,20 +7,40 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     SoundManager sound;
-
+    public Animator anim;
+    public GameObject VFXPrefab;
+    public AnimatorStateInfo state => anim.GetCurrentAnimatorStateInfo(0);
     public float movespeed = .03f;
     public float health = 5;
-
+    public bool explode = false;
     private void Start()
     {
+        anim = GetComponent<Animator>();
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
         sound = FindObjectOfType<SoundManager>();
+        
     }
-
+    private void Update()
+    {
+        if (state.IsName("destroy"))
+        {
+            if (explode)
+            {
+                GameObject vfx_obj = Instantiate(VFXPrefab, transform.position, Quaternion.identity);
+                vfx_obj.GetComponent<Animator>().SetBool("blast", true);
+            }
+            Destroy(gameObject);
+        }
+    }
     void FixedUpdate()
     {
-        var position = transform.position;
-        position.x -= movespeed;
-        transform.position = position;
+        if (!state.IsName("death"))
+        {
+            var position = transform.position;
+            position.x -= movespeed;
+            transform.position = position;
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,13 +50,14 @@ public class Enemy : MonoBehaviour
             if (!collision.gameObject.GetComponent<Bullet>().strike)
             {
                 collision.gameObject.GetComponent<Bullet>().strike = true;
+                anim.SetBool("hurt", true);
                 health -= 1;
                 sound.Play_Hit();
-                if (health <= 0)
+                if (health <= 0 && !anim.GetBool("death"))
                 {
                     sound.Play_Death();
-                    FindObjectOfType<Player>().money += 10;
-                    Destroy(gameObject);
+                    FindObjectOfType<Player>().money += 5;
+                    anim.SetBool("death", true);
                 }
             }
             

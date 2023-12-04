@@ -421,6 +421,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3870839423609939333, guid: b725fc5e2a08a9a4694881f0e074e6e8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -375800815, guid: a28cd327ade374d49a4fc826aaed0497, type: 3}
+    - target: {fileID: 6954197149018566292, guid: b725fc5e2a08a9a4694881f0e074e6e8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954197149018566292, guid: b725fc5e2a08a9a4694881f0e074e6e8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.32
+      objectReference: {fileID: 0}
     - target: {fileID: 7335426627077683512, guid: b725fc5e2a08a9a4694881f0e074e6e8, type: 3}
       propertyPath: m_Name
       value: Ice Tower
@@ -2042,8 +2054,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected_tower: {fileID: 0}
-  tower1_price: 0
-  tower2_price: 0
+  tower1_price: 10
+  tower2_price: 15
 --- !u!1 &1629049205
 GameObject:
   m_ObjectHideFlags: 0

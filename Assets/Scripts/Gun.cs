@@ -26,6 +26,15 @@ public class Gun : MonoBehaviour
         look_angle = Mathf.Atan2(player.look_dir.y, player.look_dir.x) * Mathf.Rad2Deg;
         localpos = transform.localPosition;
 
+        if (player.state.IsName("build"))
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
+        }
+
         if (player.transform.localScale.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);

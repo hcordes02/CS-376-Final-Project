@@ -41,19 +41,24 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        
         get_inputs();
         movement();
         
-        if (shoot && shoot_timer == 0)
+        if (shoot && shoot_timer == 0 && !state.IsName("build") && !state.IsName("lose"))
         {
             shoot_timer = shoot_cooldown;
             gun.Shoot();
         }
-        
+        if (toolbar.selected_tower != null)
+        {
+            anim.SetBool("build", true);
+        }
         if (place && toolbar.selected_tower != null)
         {
             Instantiate(toolbar.selected_tower, mouse_pos, Quaternion.identity);
             toolbar.selected_tower = null;
+            anim.SetBool("build", false);
         }
 
         if (state.IsName("run"))
@@ -90,9 +95,14 @@ public class Player : MonoBehaviour
 
     void get_inputs()
     {
+
         move.x = Input.GetAxisRaw("Horizontal");
         move.y = Input.GetAxisRaw("Vertical");
         move = move.normalized;
+        if (state.IsName("build") || state.IsName("lose"))
+        {
+            move = Vector2.zero;
+        }
 
         shoot = Input.GetMouseButton(0);
         place = Input.GetMouseButton(1);

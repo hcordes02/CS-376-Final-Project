@@ -34,6 +34,10 @@ public class Statemachine : StateMachineBehaviour
         {
             animator.SetBool("shoot", false);
         }
+        if (stateInfo.IsName("hurt"))
+        {
+            animator.SetBool("hurt", false);
+        }
         /*
         if (stateInfo.IsName("attack_startup")) {
             animator.SetBool("attack", false);

@@ -6,12 +6,16 @@ using UnityEngine;
 public class BasicTower : MonoBehaviour
 {
     public GameObject tower_bullet;
-
+    Animator anim;
     bool can_fire = true;
     float reload_speed = 1f;
     float bullet_speed = 5f;
     float shoot_timer = 0;
-
+    private void Start()
+    {
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
+        anim = GetComponent<Animator>();
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         //check that collision is an enemy
@@ -31,11 +35,13 @@ public class BasicTower : MonoBehaviour
             can_fire = false;
             Invoke("Reload", reload_speed);
 
-            GameObject b = Instantiate(tower_bullet, transform.position, Quaternion.identity);
+            anim.SetBool("shoot", true);
 
+            GameObject b = Instantiate(tower_bullet, transform.position, Quaternion.identity);
             Bullet bullet = b.GetComponent<Bullet>();
             bullet.dir = fire_direction.normalized;
             bullet.spd = bullet_speed;
+            
             Reload();
         }
 
@@ -43,6 +49,7 @@ public class BasicTower : MonoBehaviour
 
     void Reload()
     {
+
         shoot_timer = Time.time + reload_speed;
         can_fire = true;
     }

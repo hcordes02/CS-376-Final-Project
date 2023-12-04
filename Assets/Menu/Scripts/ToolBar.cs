@@ -36,7 +36,7 @@ public class ToolBar : MonoBehaviour
     private void Buy(GameObject tower, int price)
     {
         
-        if (p.money >= price)
+        if (p.money >= price && selected_tower == null)
         {
             p.money -= price;
             selected_tower = tower;

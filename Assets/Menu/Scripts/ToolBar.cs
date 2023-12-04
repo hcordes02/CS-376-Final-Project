@@ -5,7 +5,6 @@ using UnityEngine;
 /// </summary>
 public class ToolBar : MonoBehaviour
 {
-
     public GameObject selected_tower = null;
 
     public int tower1_price = 10;
@@ -15,7 +14,7 @@ public class ToolBar : MonoBehaviour
     GameObject tower2;
 
     Player p;
-    // Start is called before the first frame update
+
     void Start()
     {
         tower1 = FindObjectOfType<BasicTower>().gameObject;

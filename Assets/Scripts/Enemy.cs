@@ -47,13 +47,13 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Bullet>() != null)
         {
-            if (!collision.gameObject.GetComponent<Bullet>().strike)
+            if (!collision.gameObject.GetComponent<Bullet>().strike && !anim.GetBool("death"))
             {
                 collision.gameObject.GetComponent<Bullet>().strike = true;
                 anim.SetBool("hurt", true);
                 health -= 1;
                 sound.Play_Hit();
-                if (health <= 0 && !anim.GetBool("death"))
+                if (health <= 0)
                 {
                     sound.Play_Death();
                     FindObjectOfType<Player>().money += 5;

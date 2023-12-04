@@ -13,8 +13,8 @@ public class Spawner : MonoBehaviour
     {
         if (spawn_timer == 0)
         {
-            spawn_interval = Util.Approach(spawn_interval, 4f, 0.1f);
-            if (spawn_interval == 4)
+            spawn_interval = Util.Approach(spawn_interval, 2f, 0.1f);
+            if (spawn_interval < 4f)
             {
                 spawn_chance = Util.Approach(spawn_chance, 0.8f, 0.05f);
             }

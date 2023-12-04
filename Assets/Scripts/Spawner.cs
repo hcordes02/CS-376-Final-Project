@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -10,18 +8,12 @@ public class Spawner : MonoBehaviour
     float rand_chance => Random.Range(0f, 1f);
     float spawn_chance = 0.1f;
     float rand_pos => Random.Range(-2f, 2f);
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (spawn_timer == 0)
         {
-            spawn_interval = Util.Approach(spawn_interval, 2f, 0.1f);
+            spawn_interval = Util.Approach(spawn_interval, 4f, 0.1f);
             if (spawn_interval == 4)
             {
                 spawn_chance = Util.Approach(spawn_chance, 0.8f, 0.05f);
@@ -29,6 +21,7 @@ public class Spawner : MonoBehaviour
         }
 
     }
+
     private void FixedUpdate()
     {
         spawn_timer = Util.Approach(spawn_timer, 0, Time.deltaTime);

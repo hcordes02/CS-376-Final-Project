@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
                 if (health <= 0)
                 {
                     sound.Play_Death();
-                    FindObjectOfType<Player>().money += 10;
+                    FindObjectOfType<Player>().money += 3;
                     Destroy(gameObject);
                 }
             }

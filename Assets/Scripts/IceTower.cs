@@ -5,10 +5,6 @@ using UnityEngine;
 /// </summary>
 public class IceTower : MonoBehaviour
 {
-    //public float slow_speed = .02f;
-
-    //public float originial_speed;
-
     public float slow_factor = 1.5f;
 
     private void OnTriggerEnter2D(Collider2D collision)

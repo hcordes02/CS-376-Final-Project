@@ -2042,8 +2042,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected_tower: {fileID: 0}
-  tower1_price: 0
-  tower2_price: 0
+  tower1_price: 10
+  tower2_price: 15
 --- !u!1 &1629049205
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,8 +2831,8 @@ SceneRoots:
   - {fileID: 662601657}
   - {fileID: 2058880021}
   - {fileID: 2103543648}
-  - {fileID: 13833455}
-  - {fileID: 1747919397}
-  - {fileID: 924173090}
   - {fileID: 1070315121}
   - {fileID: 276483928}
+  - {fileID: 924173090}
+  - {fileID: 1747919397}
+  - {fileID: 13833455}
